@@ -10,6 +10,8 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
+import org.senchalabs.gwt.gwtdriver.models.GwtWidget;
+
 
 @DefaultUrl("http://www.smartclient.com/smartgwt/showcase/#featured_tile_filtering")
 
@@ -36,20 +38,16 @@ public class SortAndFilteringPage extends PageObject {
     }
 
         public void moveLifeSpanToggle() {
-	try {
-	    Thread.sleep(3000);
-	} catch (InterruptedException e) {
-	    e.printStackTrace();
-	}
-	Actions moveSlider = new Actions(getDriver());
-	Action action = moveSlider.dragAndDropBy(maxLifeSpanBarElement, -67, 0).build();
 
-	action.perform();
-//	WebElement webElement = getDriver().findElement(new FasterByChained(By.xpath(".//div/*"),
-//			new org.senchalabs.gwt.gwtdriver.by.ByWidget(getDriver(), Slider.class)));
-//
-//	Slider slider = (Slider) webElement;
-//	slider.setValue(30);
+//	Actions moveSlider = new Actions(getDriver());
+//	Action action = moveSlider.dragAndDropBy(maxLifeSpanBarElement, -67, 0).build();
+////
+//	action.perform();
+        	WebElement webElement = getDriver().findElement(new FasterByChained(By.xpath(".//div/*"),
+			new org.senchalabs.gwt.gwtdriver.by.ByWidget(getDriver(), Slider.class)));
+
+	Slider slider = (Slider) webElement;
+	slider.setValue(30);
     }
 
     public void sortBySelection(String sortByName) {
