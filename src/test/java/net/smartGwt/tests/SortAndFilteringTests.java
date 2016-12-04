@@ -11,19 +11,19 @@ import net.thucydides.core.annotations.Managed;
 @RunWith(SerenityRunner.class)
 public class SortAndFilteringTests {
 
-    @Managed
-    WebDriver driver;
+	@Managed
+	WebDriver driver;
 
-    SortAndFilteringPage sortAndFilteringPage;
+	SortAndFilteringPage sortAndFilteringPage;
 
-    @Test
-    public void filterBasedOnCriteria() {
-        driver.manage().window().maximize();
-	sortAndFilteringPage.open();
-	sortAndFilteringPage.searchAnimalBox("a");
-	sortAndFilteringPage.moveLifeSpanToggle();
-	sortAndFilteringPage.sortBySelection("Life Span");
-	sortAndFilteringPage.selectAscendingCheckbox();
-	sortAndFilteringPage.checkNumberOfElementsDisplayedAfterFiltering(12);
-    }	
+	@Test
+	public void filterBasedOnCriteria() {
+		driver.manage().window().maximize();
+		sortAndFilteringPage.open();
+		sortAndFilteringPage.searchAnimalBox("a");
+		sortAndFilteringPage.moveLifeSpanToggle(30);
+		sortAndFilteringPage.sortBySelection("Life Span");
+		sortAndFilteringPage.selectAscendingCheckbox();
+		sortAndFilteringPage.checkNumberOfElementsDisplayedAfterFiltering(12);
+	}
 }

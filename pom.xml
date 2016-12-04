@@ -11,9 +11,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<smartgwt.version>2.4</smartgwt.version>
-		<serenity.version>1.1.36</serenity.version>
-
+		<serenity.version>1.1.34</serenity.version>
 		<webdriver.driver>firefox</webdriver.driver>
 	</properties>
 
@@ -25,12 +23,6 @@
 			<id>central</id>
 			<name>bintray</name>
 			<url>http://jcenter.bintray.com</url>
-		</repository>
-		<repository>
-			<id>sonatype.snapshots</id>
-			<name>Sonatype snapshot repository</name>
-			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-			<layout>default</layout>
 		</repository>
 	</repositories>
 	<pluginRepositories>
@@ -71,16 +63,6 @@
 			<groupId>org.assertj</groupId>
 			<artifactId>assertj-core</artifactId>
 			<version>1.7.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.smartgwt</groupId>
-			<artifactId>smartgwt</artifactId>
-			<version>${smartgwt.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.senchalabs.gwt</groupId>
-			<artifactId>gwt-driver</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 
 	</dependencies>
