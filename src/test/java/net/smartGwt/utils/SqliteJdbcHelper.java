@@ -91,8 +91,6 @@ public class SqliteJdbcHelper {
 			Times times = new Times();
 			if (resultSet.next())
 				times.Last = resultSet.getLong(COLUMN_TIME_RUN);
-			if (resultSet.next())
-				times.SecondToLast = resultSet.getLong(COLUMN_TIME_RUN);
 
 			statement.close();
 
