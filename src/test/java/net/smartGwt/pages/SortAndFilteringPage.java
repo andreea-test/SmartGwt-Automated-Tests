@@ -45,7 +45,11 @@ public class SortAndFilteringPage extends PageObject {
 	Action action = moveSlider.dragAndDropBy(maxLifeSpanBarElement, -67, 0).build();
 
 	action.perform();
-
+//	WebElement webElement = getDriver().findElement(new FasterByChained(By.xpath(".//div/*"),
+//			new org.senchalabs.gwt.gwtdriver.by.ByWidget(getDriver(), Slider.class)));
+//
+//	Slider slider = (Slider) webElement;
+//	slider.setValue(30);
     }
 
     public void sortBySelection(String sortByName) {
