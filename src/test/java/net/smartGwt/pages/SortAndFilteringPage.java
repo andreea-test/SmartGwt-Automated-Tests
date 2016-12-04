@@ -37,9 +37,9 @@ public class SortAndFilteringPage extends PageObject {
 	public void moveLifeSpanToggle(int lifeSpanNumber) {
 
 		Actions actions = new Actions(getDriver()).moveToElement(maxLifeSpanCoursorElement).click();
-		while(lifeSpanNumber/3!=0){
-				actions.sendKeys(Keys.ARROW_LEFT);
-				lifeSpanNumber=lifeSpanNumber-3;
+		while (lifeSpanNumber / 3 != 0) {
+			actions.sendKeys(Keys.ARROW_LEFT);
+			lifeSpanNumber = lifeSpanNumber - 3;
 		}
 		actions.perform();
 	}

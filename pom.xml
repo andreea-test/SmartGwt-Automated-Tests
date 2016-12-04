@@ -11,7 +11,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<serenity.version>1.1.34</serenity.version>
+		<serenity.version>1.1.36</serenity.version>
 		<webdriver.driver>firefox</webdriver.driver>
 	</properties>
 
@@ -23,6 +23,12 @@
 			<id>central</id>
 			<name>bintray</name>
 			<url>http://jcenter.bintray.com</url>
+		</repository>
+		<repository>
+			<id>osssonatype</id>
+			<name>OSS Sonatype</name>
+			<url>https://repo1.maven.org/maven2/</url>
+			<layout>default</layout>
 		</repository>
 	</repositories>
 	<pluginRepositories>
@@ -63,6 +69,11 @@
 			<groupId>org.assertj</groupId>
 			<artifactId>assertj-core</artifactId>
 			<version>1.7.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.xerial</groupId>
+			<artifactId>sqlite-jdbc</artifactId>
+			<version>3.15.1</version>
 		</dependency>
 
 	</dependencies>
