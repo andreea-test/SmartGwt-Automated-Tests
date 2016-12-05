@@ -75,12 +75,6 @@
 			<artifactId>sqlite-jdbc</artifactId>
 			<version>3.15.1</version>
 		</dependency>
-		<dependency>
-			<groupId>com.smartgwt</groupId>
-			<artifactId>smartgwt</artifactId>
-			<version>2.4</version>
-		</dependency>
-
 	</dependencies>
 	<build>
 		<plugins>

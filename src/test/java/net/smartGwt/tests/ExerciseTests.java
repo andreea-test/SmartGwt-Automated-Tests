@@ -63,15 +63,15 @@ public class ExerciseTests {
 	/*
 	 * Exercise 1
 	 */
-	// @Test
-	// public void filterBasedOnCriteria() {
-	// sortAndFilteringPage.open();
-	// sortAndFilteringPage.searchAnimalBox("a");
-	// sortAndFilteringPage.moveLifeSpanToggle(30);
-	// sortAndFilteringPage.sortBySelection("Life Span");
-	// sortAndFilteringPage.selectAscendingCheckbox();
-	// sortAndFilteringPage.checkNumberOfElementsDisplayedAfterFiltering(12);
-	// }
+	@Test
+	public void filterBasedOnCriteria() {
+		sortAndFilteringPage.open();
+		sortAndFilteringPage.searchAnimalBox("a");
+		sortAndFilteringPage.moveLifeSpanToggle(30);
+		sortAndFilteringPage.sortBySelection("Life Span");
+		sortAndFilteringPage.selectAscendingCheckbox();
+		sortAndFilteringPage.checkNumberOfElementsDisplayedAfterFiltering(12);
+	}
 
 	/*
 	 * Exercise 2
