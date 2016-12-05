@@ -44,10 +44,10 @@ public class ExerciseTests {
 	public static void afterTest() {
 		endTime = DateTime.now();
 		long lastExecution = endTime.getMillis() - startTime.getMillis();
-		Times previousExecution = SqliteJdbcHelper.getTimes();
-		if (lastExecution > previousExecution.Last) {
+		long previousExecution = SqliteJdbcHelper.getTimes().Last == null ? 0 : SqliteJdbcHelper.getTimes().Last;
+		if (lastExecution > previousExecution) {
 			slf4jLogger.info("Last execution is longer than previous");
-		} else if (lastExecution == previousExecution.Last) {
+		} else if (lastExecution == previousExecution) {
 			slf4jLogger.info("Lsat execution is the same as previous");
 		} else
 			slf4jLogger.info("Last execution is shorter than previous");
