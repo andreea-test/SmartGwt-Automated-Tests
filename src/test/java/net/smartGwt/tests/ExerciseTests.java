@@ -1,12 +1,15 @@
 package net.smartGwt.tests;
 
 import org.joda.time.DateTime;
+import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.smartGwt.pages.DropDownGridPage;
@@ -27,6 +30,8 @@ public class ExerciseTests {
 	static DateTime startTime;
 	static DateTime endTime;
 
+	private final static Logger slf4jLogger = LoggerFactory.getLogger(ExerciseTests.class);
+
 	@BeforeClass
 	public static void maximizeWindowsAndKeepTrackOfTiming() {
 		startTime = DateTime.now();
@@ -39,11 +44,13 @@ public class ExerciseTests {
 	public static void afterTest() {
 		endTime = DateTime.now();
 		long lastExecution = endTime.getMillis() - startTime.getMillis();
-		Times t = SqliteJdbcHelper.getTimes();
-		if (lastExecution > t.Last) {
-			System.out.println("Last execution is longer than previous");
+		Times previousExecution = SqliteJdbcHelper.getTimes();
+		if (lastExecution > previousExecution.Last) {
+			slf4jLogger.info("Last execution is longer than previous");
+		} else if (lastExecution == previousExecution.Last) {
+			slf4jLogger.info("Lsat execution is the same as previous");
 		} else
-			System.out.println("Last execution is shorter than previous");
+			slf4jLogger.info("Last execution is shorter than previous");
 		SqliteJdbcHelper.insert(lastExecution);
 		SqliteJdbcHelper.disconnect();
 	}
@@ -56,15 +63,15 @@ public class ExerciseTests {
 	/*
 	 * Exercise 1
 	 */
-//	@Test
-//	public void filterBasedOnCriteria() {
-//		sortAndFilteringPage.open();
-//		sortAndFilteringPage.searchAnimalBox("a");
-//		sortAndFilteringPage.moveLifeSpanToggle(30);
-//		sortAndFilteringPage.sortBySelection("Life Span");
-//		sortAndFilteringPage.selectAscendingCheckbox();
-//		sortAndFilteringPage.checkNumberOfElementsDisplayedAfterFiltering(12);
-//	}
+	// @Test
+	// public void filterBasedOnCriteria() {
+	// sortAndFilteringPage.open();
+	// sortAndFilteringPage.searchAnimalBox("a");
+	// sortAndFilteringPage.moveLifeSpanToggle(30);
+	// sortAndFilteringPage.sortBySelection("Life Span");
+	// sortAndFilteringPage.selectAscendingCheckbox();
+	// sortAndFilteringPage.checkNumberOfElementsDisplayedAfterFiltering(12);
+	// }
 
 	/*
 	 * Exercise 2
@@ -76,4 +83,8 @@ public class ExerciseTests {
 		dropDownGridPage.scrollUntilElementIsFound();
 	}
 
+	@After
+	public void closeDriver() {
+		driver.close();
+	}
 }

@@ -5,7 +5,12 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class SqliteJdbcHelper {
+
+	private final static Logger slf4jLogger = LoggerFactory.getLogger(SqliteJdbcHelper.class);
 
 	private static final String TABLE_NAME = "timing";
 	private static final String COLUMN_ID = "id";
@@ -31,7 +36,7 @@ public class SqliteJdbcHelper {
 		} catch (Exception e) {
 			printException(e);
 		}
-		System.out.println("Opened database successfully");
+		slf4jLogger.info("Opened database successfully");
 	}
 
 	private static void tryCommit() {
@@ -42,7 +47,7 @@ public class SqliteJdbcHelper {
 		} catch (Exception e) {
 			printException(e);
 		}
-		System.out.println("Commited! Rows affected: " + rowsAffected);
+		slf4jLogger.info("Commited! Rows affected: " + rowsAffected);
 		rowsAffected = 0;
 	}
 
@@ -53,7 +58,7 @@ public class SqliteJdbcHelper {
 		} catch (Exception e) {
 			printException(e);
 		}
-		System.out.println("Closed database.");
+		slf4jLogger.info("Closed database.");
 	}
 
 	public static void createTable() {
@@ -66,7 +71,7 @@ public class SqliteJdbcHelper {
 		} catch (Exception e) {
 			printException(e);
 		}
-		System.out.println("Table created successfully");
+		slf4jLogger.info("Table created successfully");
 	}
 
 	public static void insert(long executionTime) {
@@ -79,7 +84,7 @@ public class SqliteJdbcHelper {
 		} catch (Exception e) {
 			printException(e);
 		}
-		System.out.println("'" + executionTime + "' inserted!");
+		slf4jLogger.info("'" + executionTime + "' inserted!");
 	}
 
 	public static Times getTimes() {

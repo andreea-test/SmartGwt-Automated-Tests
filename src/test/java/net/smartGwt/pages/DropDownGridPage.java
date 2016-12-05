@@ -6,7 +6,7 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
-import com.smartgwt.client.widgets.form.fields.SelectItem;
+
 
 @DefaultUrl("http://www.smartclient.com/smartgwt/showcase/#featured_dropdown_grid_category")
 
